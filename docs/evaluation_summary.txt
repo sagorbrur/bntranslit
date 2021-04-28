@@ -1,0 +1,80 @@
+bn_dev.json
+
+TOP 10 SCORES FOR 9200 SAMPLES:
+ACC:          0.761087
+Mean F-score: 0.949622
+MRR:          0.518233
+MAP_ref:      0.392705
+
+bn_dev.json
+
+TOP 5 SCORES FOR 9200 SAMPLES:
+ACC:          0.684891
+Mean F-score: 0.935650
+MRR:          0.507899
+MAP_ref:      0.392705
+
+bn_dev.json
+
+TOP 3 SCORES FOR 9200 SAMPLES:
+ACC:          0.612283
+Mean F-score: 0.919998
+MRR:          0.491214
+MAP_ref:      0.392705
+
+bn_dev.json
+
+TOP 2 SCORES FOR 9200 SAMPLES:
+ACC:          0.543261
+Mean F-score: 0.902426
+MRR:          0.468207
+MAP_ref:      0.392705
+
+bn_dev.json
+
+TOP 1 SCORES FOR 9200 SAMPLES:
+ACC:          0.393152
+Mean F-score: 0.862002
+MRR:          0.393152
+MAP_ref:      0.391887
+
+bn_test.json
+
+TOP 10 SCORES FOR 9146 SAMPLES:
+ACC:          0.757490
+Mean F-score: 0.946998
+MRR:          0.506660
+MAP_ref:      0.379483
+
+bn_test.json
+
+TOP 5 SCORES FOR 9146 SAMPLES:
+ACC:          0.679641
+Mean F-score: 0.932078
+MRR:          0.496024
+MAP_ref:      0.379483
+
+bn_test.json
+
+TOP 3 SCORES FOR 9146 SAMPLES:
+ACC:          0.600700
+Mean F-score: 0.915437
+MRR:          0.477950
+MAP_ref:      0.379483
+
+bn_test.json
+
+TOP 2 SCORES FOR 9146 SAMPLES:
+ACC:          0.527772
+Mean F-score: 0.898038
+MRR:          0.453641
+MAP_ref:      0.379483
+
+bn_test.json
+
+TOP 1 SCORES FOR 9146 SAMPLES:
+ACC:          0.379510
+Mean F-score: 0.855534
+MRR:          0.379510
+MAP_ref:      0.378745
+
