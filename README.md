@@ -7,6 +7,8 @@ __BNTRANSLIT__ is a deep learning based transliteration app for Bangla word.
 ## Dependency
 - pytorch 1.7.0 or 1.7.0+
 
+NB: No `GPU` Needed. Totally `CPU` based
+
 ## Pre-trained Model
 - [Download bntranslit_model](https://drive.google.com/file/d/1sJlfPwkALKsjlVq-skIo5hnho-QZUKbc/view?usp=sharing)
 
@@ -20,6 +22,7 @@ bntrans = BNTransliteration()
 model_path = "bntranslit_model.pth"
 word = "vaat"
 output = bntrans.predict(model_path, word, topk=10)
+# output: ['ভাট', 'ভাত', 'ভাঁট', 'ওয়াট', 'ভাঁত', 'ভোট', 'ভাঠ', 'ভাদ', 'ভট', 'ভ্যাট']
 
 ```
 

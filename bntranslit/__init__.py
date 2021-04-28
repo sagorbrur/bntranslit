@@ -8,5 +8,5 @@ if is_torch_available():
     from bntranslit.bntransliteration import BNTransliteration
 
 if not is_torch_available():
-    msg.fail("import fail. Please install pytorch 1.7.0+")
+    msg.fail("torch not available. Please install pytorch 1.7.0+")
 

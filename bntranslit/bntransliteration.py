@@ -1,4 +1,3 @@
-import os
 import sys
 import random
 
@@ -530,13 +529,6 @@ def load_pretrained(model, weight_path, flexible = False):
     model.load_state_dict(model_dict)
 
     return model
-
-def freeze_params(model, exclusion_list = []):
-    ## TODO: Exclusion lists
-    for param in model.parameters():
-        param.requires_grad = False
-    return model
-
 
 class BNTransliteration:
     def __init__(self):
