@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name="bntranslit",
-    version="1.0.0",
+    version="1.0.1",
     author="Sagor Sarker",
     author_email="sagorhem3532@gmail.com",
     description="BNTRANSLIT is a deep learning based transliteration app for Bangla word",
