@@ -570,7 +570,6 @@ class BNTransliteration:
         self.model = load_pretrained(self.model, model_path)
 
     def predict(self, word, topk=10):
-        # model = load_pretrained(self.model, model_path)
         in_vec = torch.from_numpy(self.src_glyph.word2xlitvec(word)).to(self.device)
         p_out_list = self.model.active_beam_inference(in_vec, beam_width = topk)
         p_result = [ self.tgt_glyph.xlitvec2word(out.cpu().numpy()) for out in p_out_list]
