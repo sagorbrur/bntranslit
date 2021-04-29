@@ -21,9 +21,9 @@ from bntranslit import BNTransliteration
 model_path = "bntranslit_model.pth"
 bntrans = BNTransliteration(model_path)
 
-word = "vaat"
+word = "aami"
 output = bntrans.predict(word, topk=10)
-# output: ['ভাট', 'ভাত', 'ভাঁট', 'ওয়াট', 'ভাঁত', 'ভোট', 'ভাঠ', 'ভাদ', 'ভট', 'ভ্যাট']
+# output: ['আমি', 'আমী', 'অ্যামি', 'আমিই', 'এমি', 'আমির', 'আমিদ', 'আমই', 'আমে', 'আমিতে']
 
 ```
 
