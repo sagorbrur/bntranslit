@@ -17,11 +17,12 @@ NB: No `GPU` Needed. Totally `CPU` based
 ```py
 from bntranslit import BNTransliteration
 
-bntrans = BNTransliteration()
 
 model_path = "bntranslit_model.pth"
+bntrans = BNTransliteration(model_path)
+
 word = "vaat"
-output = bntrans.predict(model_path, word, topk=10)
+output = bntrans.predict(word, topk=10)
 # output: ['ভাট', 'ভাত', 'ভাঁট', 'ওয়াট', 'ভাঁত', 'ভোট', 'ভাঠ', 'ভাদ', 'ভট', 'ভ্যাট']
 
 ```
