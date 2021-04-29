@@ -531,7 +531,7 @@ def load_pretrained(model, weight_path, flexible = False):
     return model
 
 class BNTransliteration:
-    def __init__(self):
+    def __init__(self, model_path):
         self.device = "cpu"
         self.en_num = [chr(alpha) for alpha in range(48, 58)]
         self.english_lower_script = [chr(alpha) for alpha in range(97, 123)]
@@ -567,13 +567,15 @@ class BNTransliteration:
         self.model = Seq2Seq(self.enc, self.dec, pass_enc2dec_hid=enc2dec_hid,
                     device=self.device)
         self.model = self.model.to(self.device)
-        
-    def predict(self, model_path, word, topk=10):
-        model = load_pretrained(self.model, model_path)
+        self.model = load_pretrained(self.model, model_path)
+
+    def predict(self, word, topk=10):
         in_vec = torch.from_numpy(self.src_glyph.word2xlitvec(word)).to(self.device)
-        p_out_list = model.active_beam_inference(in_vec, beam_width = topk)
+        p_out_list = self.model.active_beam_inference(in_vec, beam_width = topk)
         p_result = [ self.tgt_glyph.xlitvec2word(out.cpu().numpy()) for out in p_out_list]
         result = p_result
 
         return result
+
+
 
