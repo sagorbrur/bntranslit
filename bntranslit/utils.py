@@ -1,6 +1,6 @@
 bangla_script = ["২", "হ", "ষ", "আ", "ঔ", "ই", "ঐ", "ি", "শ", "ঁ", "৪", "৮", "ঠ", "ণ", "য", "ঈ", "ঘ", "ফ", "ঞ", "জ", "ড়", "র", "ট", "ভ", "ৃ", "ঢ়", "অ", "০", "স", "৩", "৭", "৯", "প", "ম", "ক", "ং", "ু", "ছ", "৬", "গ", "ঃ", "ো", "্", "ঊ", "চ", "ল", "ী", "ঢ", "ত", "ৎ", "উ", "য়", "১", "ঋ", " ", "ড", "দ", "়", "ঙ", "ূ", "থ", "খ", "ৌ", "ে", "ব", "ৈ", "ও", "৫", "া", "ধ", "ঝ", "ন", "এ", "‌", "‍"]
 
-
+import wget
 from wasabi import msg
 
 try:
@@ -12,3 +12,14 @@ except ImportError:
 
 def is_torch_available():
 	return _torch_available
+
+def download_model(destination):
+    model_url = ""
+    msg.info(f"bntranlist model download...")
+    try:
+        wget.download(model_url, destination)
+        msg.good(f"bntranslit model downloaded successfully and save in {destination}")
+    except:
+        msg.fail("bntranslit model downlaod failed!")
+        msg.info(f"please manually download from {model_url}")
+    

@@ -1,10 +1,12 @@
+import os
 import sys
 import random
 
 import torch
 import torch.nn as nn
 import numpy as np
-from bntranslit.utils import bangla_script
+from wasabi import msg
+from bntranslit.utils import bangla_script, download_model
 
 class Encoder(nn.Module):
     '''
@@ -531,10 +533,16 @@ def load_pretrained(model, weight_path, flexible = False):
     return model
 
 class BNTransliteration:
-    def __init__(self, model_path):
+    def __init__(self, model_path=None):
+        if not model_path:
+            download_path = "bntranslit_model"
+            os.makedirs(download_path, exist_ok=True)
+            model_path = download_path + "/" + "bntranslit_model.pth"
+            download_model(download_path)
         self.device = "cpu"
         self.en_num = [chr(alpha) for alpha in range(48, 58)]
-        self.english_lower_script = [chr(alpha) for alpha in range(97, 123)]
+        self.english_lower_script_without_num = [chr(alpha) for alpha in range(97, 123)]
+        self.english_lower_script = self.english_lower_script_without_num + self.en_num
         self.bangla_script = bangla_script
         self.src_glyph = GlyphStrawboss(self.english_lower_script) 
         self.tgt_glyph = GlyphStrawboss(self.bangla_script)
@@ -570,12 +578,19 @@ class BNTransliteration:
         self.model = load_pretrained(self.model, model_path)
 
     def predict(self, word, topk=10):
-        in_vec = torch.from_numpy(self.src_glyph.word2xlitvec(word)).to(self.device)
-        p_out_list = self.model.active_beam_inference(in_vec, beam_width = topk)
-        p_result = [ self.tgt_glyph.xlitvec2word(out.cpu().numpy()) for out in p_out_list]
-        result = p_result
-
+        result = []
+        try:
+            in_vec = torch.from_numpy(self.src_glyph.word2xlitvec(word)).to(self.device)
+            p_out_list = self.model.active_beam_inference(in_vec, beam_width = topk)
+            p_result = [ self.tgt_glyph.xlitvec2word(out.cpu().numpy()) for out in p_out_list]
+            result = p_result
+        except Exception as e:
+            print(f"{word} contains unsupported character!")
+            print(e)
+        
         return result
+
+
 
 
 

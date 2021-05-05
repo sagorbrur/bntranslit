@@ -1,6 +1,6 @@
-from bntranslit import BNTransliteration
+from bntranslit.bntransliteration import BNTransliteration
 
-bntrans = BNTransliteration('bntransliterate_model.pth')
+bntrans = BNTransliteration('model/bntranslit_model.pth')
 
 output = bntrans.predict('aami', topk=10)
 print(output)
