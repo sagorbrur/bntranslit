@@ -10,7 +10,7 @@ __BNTRANSLIT__ is a deep learning based transliteration app for Bangla word.
 NB: No `GPU` Needed. Totally `CPU` based
 
 ## Pre-trained Model
-- [Download bntranslit_model](https://drive.google.com/file/d/1sJlfPwkALKsjlVq-skIo5hnho-QZUKbc/view?usp=sharing)
+- [Download bntranslit_model](https://github.com/sagorbrur/bntranslit/raw/master/model/bntranslit_model.pth)
 
 ## Usage
 

@@ -538,7 +538,8 @@ class BNTransliteration:
             download_path = "bntranslit_model"
             os.makedirs(download_path, exist_ok=True)
             model_path = download_path + "/" + "bntranslit_model.pth"
-            download_model(download_path)
+            if not os.path.exists(model_path):
+                download_model(download_path)
         self.device = "cpu"
         self.en_num = [chr(alpha) for alpha in range(48, 58)]
         self.english_lower_script_without_num = [chr(alpha) for alpha in range(97, 123)]

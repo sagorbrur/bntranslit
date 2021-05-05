@@ -6,7 +6,7 @@ from wasabi import msg
 try:
     import torch
     _torch_available = True  
-    msg.info(f"PyTorch version {torch.__version__} available.")
+    # msg.info(f"PyTorch version {torch.__version__} available.")
 except ImportError:
     _torch_available = False  
 
@@ -14,11 +14,11 @@ def is_torch_available():
 	return _torch_available
 
 def download_model(destination):
-    model_url = ""
-    msg.info(f"bntranlist model download...")
+    model_url = "https://github.com/sagorbrur/bntranslit/raw/master/model/bntranslit_model.pth"
+    msg.info(f"bntranlist model downloading...")
     try:
         wget.download(model_url, destination)
-        msg.good(f"bntranslit model downloaded successfully and save in {destination}")
+        msg.good(f"bntranslit model downloaded successfully and saved in {destination}")
     except:
         msg.fail("bntranslit model downlaod failed!")
         msg.info(f"please manually download from {model_url}")
